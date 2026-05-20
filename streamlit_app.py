@@ -11,6 +11,7 @@ import streamlit as st
 import urllib.request
 import json
 import math
+import time
 from datetime import datetime, timedelta
 
 import pandas as pd
@@ -311,6 +312,8 @@ def build_universe(use_nzx=True):
     meta  = {}
     for ticker, name in NZX_UNIVERSE:
         df = fetch_nzx(ticker) if use_nzx else None
+        if use_nzx:
+            time.sleep(6)  # NZXplorer free tier: 10 req/min → 6s between calls
         if df is None:
             df = fetch_yahoo(ticker)
         m = calc_metrics(df)
