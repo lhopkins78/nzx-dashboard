@@ -44,7 +44,7 @@ NZX_UNIVERSE = [
 ]
 
 # NZXplorer config
-NZX_KEY   = "nzx_3f4e5b0dcb6ca2129b8f67216281fa6cff7ef7c7192aea49"
+NZX_KEY   = st.secrets.get("NZX_KEY", "")
 NZX_BASE  = "https://nzxplorer.co.nz/api/v1/prices"
 
 # Yahoo fallback
